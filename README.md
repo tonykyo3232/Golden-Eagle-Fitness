@@ -1,10 +1,6 @@
 ## Golden Eagle Fitness
 
-
-**************************
 ## npm commands for node modules
-**************************
-
 **all the commands in "Getting Started"**
 ```
 npm install @react-navigation/native
@@ -31,9 +27,8 @@ expo install react-native-safe-area-context
 ```
 npm i react-native-multi-selectbox
 ```
-**************************
+
 ## useful links
-**************************
 **link for searching the packages**
 https://npm.io/
 
