@@ -42,3 +42,5 @@ npm install --save react-native-responsive-dimensions
 **link for searching the packages**
 https://npm.io/
 
+## Database Management Repository
+https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management
