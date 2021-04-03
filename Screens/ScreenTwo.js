@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, View } from 'react-native'
 import SelectBox from 'react-native-multi-selectbox'
 import { xorBy } from 'lodash'
@@ -44,8 +44,39 @@ const Body_Parts = [
   ]
 
 function ScreenTwo() {
+  
   const [selectedTeam, setSelectedTeam] = useState({})
   const [selectedTeams, setSelectedTeams] = useState([])
+
+  const [workouts, setWorkouts] = useState('');
+
+  useEffect(() => {
+
+      const getWorkouts = async () => {
+
+          const responseWorkout = await fetch('https://gef-db.herokuapp.com/workout');
+          
+          const workouts = await responseWorkout.json();
+          
+          // debug - this will print out all the workout programs in database
+          // console.log(workouts) // debug
+          
+          // debug - this will print out each workout program's detail in a loop
+          // workouts.map((entry) => {
+          //   console.log("label: " + entry.label)
+          //   console.log("name: " + entry.name)
+          //   console.log("link: " + entry.link)
+          //   console.log('---------------------')
+          // })
+
+          setWorkouts(workouts);
+
+      };
+
+      getWorkouts();
+
+  }, []);
+
   return (
     <View style={{ margin: 30 }}>
 

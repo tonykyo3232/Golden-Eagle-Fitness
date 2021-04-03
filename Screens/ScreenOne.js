@@ -3,12 +3,12 @@
 */
 import React from 'react';
 import {View, StyleSheet, SafeAreaView, Text, Button} from 'react-native';
-import {responsiveHeight,responsiveWidth,responsiveFontSize} from "react-native-responsive-dimensions";
+import {responsiveHeight, responsiveWidth, responsiveFontSize} from "react-native-responsive-dimensions";
 const ScreenOne = props =>{
 
     return (
         <View style={styles.container}>
-            <Text style= {styles.textStyle}>Choose your fitness program!</Text>
+            <Text style= {styles.textStyle}>Let's get some workout!</Text>
             <View style= {styles.buttonContainer}>
             <Button title="Select the workout program" onPress={() => props.navigation.navigate('ScreenTwo')}/>
             </View>
