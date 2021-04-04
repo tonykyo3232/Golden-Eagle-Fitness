@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import ScreenOne from './Screens/ScreenOne';
 import ScreenTwo from './Screens/ScreenTwo';
 import ScreenThree from './Screens/ScreenThree';
+import ScreenFour from './Screens/ScreenFour';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -25,6 +26,9 @@ const FitnessStack = () =>{
       title: 'Golden Eagle Fitness',
     }}/>
     <Stack.Screen name = "ScreenThree" component={ScreenThree} options={{
+      title: 'Golden Eagle Fitness',
+    }}/>
+    <Stack.Screen name = "ScreenFour" component={ScreenFour} options={{
       title: 'Golden Eagle Fitness',
     }}/>
   </Stack.Navigator> 
