@@ -1,5 +1,19 @@
 ## Golden Eagle Fitness
 
+## Project Requirements Checklist:
+- [x] Your project shall use proper JavaScript syntax
+- [x] Your project shall use Props as well as keep track of state (i.e. useState, this.state)
+- [x] Your project shall be written using JavaScript's mobile application framework, React Native
+- [x] Your project shall use Lists (ScrollView, FlatList) and User Input (TextInput)
+- [x] Your project shall be a Multiple Page Application and utilize React Navigation (Note: Single Page Applications will not be accepted)
+- [x] Your project shall include 3rd party components form NPM
+- [ ] Your project shall use Redux to keep track of overall application state
+- [ ] Your project shall take device performance in mind by applying efficient algorithms and modern React Native Performance methods
+- [ ] Your project shall run without crashing on both iOS and/or Android devices
+
+## Database Management Repository
+https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management
+
 ## Commands for node modules
 **Pre-requisites and Requirement commands (npm)**
 ```
@@ -42,5 +56,3 @@ npm install --save react-native-responsive-dimensions
 **link for searching the packages**
 https://npm.io/
 
-## Database Management Repository
-https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management

@@ -1,3 +1,6 @@
+/*
+    Program Selection Screen
+*/
 import React, { useState, useEffect } from 'react'
 import { Text, View, Button, SafeAreaView} from 'react-native'
 
@@ -47,6 +50,7 @@ const Body_Parts = [
 
 function ScreenTwo(props) {
   
+  const [selectedLabel, setSelectedLabel] = useState({})
   const [selectedTeam, setSelectedTeam] = useState({})
   const [selectedTeams, setSelectedTeams] = useState([])
 
@@ -77,8 +81,7 @@ function ScreenTwo(props) {
         onTapClose={onMultiChange()}
         isMulti
       />
-
-      <Button title="Next" onPress={() => props.navigation.navigate('ScreenFour')}/>
+      <Button title="Next" onPress={() => props.navigation.navigate('ScreenFour', {selectedLabel: selectedLabel})}/>
 
     </View>
   )
@@ -88,7 +91,10 @@ function ScreenTwo(props) {
   }
 
   function onChange() {
-    return (val) => setSelectedTeam(val)
+    return (val) => {
+      setSelectedLabel(val.id)
+      setSelectedTeam(val)
+    }
   }
 }
 
