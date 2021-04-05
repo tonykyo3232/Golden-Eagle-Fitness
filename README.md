@@ -1,4 +1,12 @@
 ## Golden Eagle Fitness
+**What the app is intended to do?**
+- This app is intended to help users create/receive workout programs to reach their
+desired weight or even strength.
+
+**How is it to be used?**
+- Users can choose the workout programs we have provided within the app.
+- Users can also customize workout programs. 
+- Users can set reminders for when their workout should begin throughout the day.
 
 ## Project Requirements Checklist:
 - [x] Your project shall use proper JavaScript syntax
@@ -15,44 +23,9 @@
 https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management
 
 ## Commands for node modules
-**Pre-requisites and Requirement commands (npm)**
-```
-npm install @react-navigation/native
-```
-```
-npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
-```
-**expo commands**
-```
-expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-```
-
-## Additional Compoments/3rd party components form NPM
-**For react-navigation/stack**
-```
-npm install @react-navigation/stack
-```
-**Animated Multi Steps(https://github.com/samad324/react-native-animated-multistep)**
-```
-npm install react-native-animated-multistep
-```
-**react-native-svg**
-```
-expo install react-native-svg
-```
-**issue of Invariant Violation: Tried to register two views with the same name RNCSafeAreaProvider**
-```
-expo install react-native-safe-area-context
-```
-**react-native-multi-selectbox(https://npm.io/package/react-native-multi-selectbox)**
-```
-npm i react-native-multi-selectbox
-```
-**responsive dimensions**
-```
-npm install --save react-native-responsive-dimensions
-```
-## useful links
-**link for searching the packages**
-https://npm.io/
+**[React Navigation](https://reactnavigation.org/docs/getting-started/)**
+- [createStackNavigator](https://reactnavigation.org/docs/stack-navigator/)
+**[Animated Multi Steps](https://github.com/samad324/react-native-animated-multistep)**
+**[react-native-multi-selectbox](https://npm.io/package/react-native-multi-selectbox)**
+**[React Native Responsive Dimensions](https://www.npmjs.com/package/react-native-responsive-dimensions)**
 
