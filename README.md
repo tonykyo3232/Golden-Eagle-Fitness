@@ -1,9 +1,9 @@
 ## Golden Eagle Fitness
-**What the app is intended to do?**
+## What the app is intended to do?
 - This app is intended to help users create/receive workout programs to reach their
 desired weight or even strength.
 
-**How is it to be used?**
+## How is it to be used?
 - Users can choose the workout programs we have provided within the app.
 - Users can also customize workout programs. 
 - Users can set reminders for when their workout should begin throughout the day.
@@ -12,7 +12,7 @@ desired weight or even strength.
 - [x] Your project shall use proper JavaScript syntax
 - [x] Your project shall use Props as well as keep track of state (i.e. useState, this.state)
 - [x] Your project shall be written using JavaScript's mobile application framework, React Native
-- [x] Your project shall use Lists (ScrollView, FlatList) and User Input (TextInput)
+- [ ] Your project shall use Lists (ScrollView, FlatList) and User Input (TextInput)
 - [x] Your project shall be a Multiple Page Application and utilize React Navigation (Note: Single Page Applications will not be accepted)
 - [x] Your project shall include 3rd party components form NPM
 - [ ] Your project shall use Redux to keep track of overall application state
@@ -25,6 +25,7 @@ https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management
 ## Commands for node modules
 **[React Navigation](https://reactnavigation.org/docs/getting-started/)**
 - [createStackNavigator](https://reactnavigation.org/docs/stack-navigator/)
+
 **[Animated Multi Steps](https://github.com/samad324/react-native-animated-multistep)**
 **[react-native-multi-selectbox](https://npm.io/package/react-native-multi-selectbox)**
 **[React Native Responsive Dimensions](https://www.npmjs.com/package/react-native-responsive-dimensions)**
