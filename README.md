@@ -27,6 +27,8 @@ https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management
 - [createStackNavigator](https://reactnavigation.org/docs/stack-navigator/)
 
 **[Animated Multi Steps](https://github.com/samad324/react-native-animated-multistep)**
+
 **[react-native-multi-selectbox](https://npm.io/package/react-native-multi-selectbox)**
+
 **[React Native Responsive Dimensions](https://www.npmjs.com/package/react-native-responsive-dimensions)**
 
