@@ -9,17 +9,21 @@ import {responsiveHeight, responsiveWidth, responsiveFontSize} from "react-nativ
 const ScreenFour = props =>{
 
     const [workouts, setWorkouts] = useState([]);
+    const [selectedLabel, setSelectedLabel] = useState({})
     useEffect(() => {
         const getWorkouts = async () => {
-            
             // fetch the data from the website
-            const responseWorkout = await fetch(`https://gef-db.herokuapp.com/workout/${props.route.params.selectedLabel}`);
-            
+            var search = "https://gef-db.herokuapp.com/workout/" + props.route.params.selectedLabel;
+            const responseWorkout = await fetch(search);
+
             // convert to Json format data
             const workouts = await responseWorkout.json();
 
             // save the workouts
             setWorkouts(workouts);
+   
+            // save the workout label
+            setSelectedLabel(props.route.params.selectedLabel);
         };
 
         getWorkouts();
@@ -28,8 +32,9 @@ const ScreenFour = props =>{
     return (
        <SafeAreaView style={styles.safeAreaView}>
            <ScrollView style={styles.scrollView}>
-            <View style={styles.container}>
-                <Text style= {styles.textStyle}>These are program details:</Text>
+                <View style={styles.container}>
+                    <Text style= {styles.textStyle}>These are program details:</Text>
+                    <Button title="START" onPress={() => props.navigation.navigate('ScreenFive', {selectedLabel: selectedLabel})}/>
                     {workouts.map((entry) => {
                         return(
                             // print out the program info on screen

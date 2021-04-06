@@ -5,6 +5,7 @@ import ScreenOne from './Screens/ScreenOne';
 import ScreenTwo from './Screens/ScreenTwo';
 import ScreenThree from './Screens/ScreenThree';
 import ScreenFour from './Screens/ScreenFour';
+import ScreenFive from './Screens/ScreenFive';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -29,6 +30,9 @@ const FitnessStack = () =>{
       title: 'Golden Eagle Fitness',
     }}/>
     <Stack.Screen name = "ScreenFour" component={ScreenFour} options={{
+      title: 'Golden Eagle Fitness',
+    }}/>
+    <Stack.Screen name = "ScreenFive" component={ScreenFive} options={{
       title: 'Golden Eagle Fitness',
     }}/>
   </Stack.Navigator> 
