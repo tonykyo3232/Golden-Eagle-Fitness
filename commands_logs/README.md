@@ -16,7 +16,7 @@ expo install react-native-gesture-handler react-native-reanimated react-native-s
 ```
 npm install @react-navigation/stack
 ```
-**Animated Multi Steps(https://github.com/samad324/react-native-animated-multistep)**
+**[Animated Multi Steps](https://github.com/samad324/react-native-animated-multistep)**
 ```
 npm install react-native-animated-multistep
 ```
@@ -28,7 +28,7 @@ expo install react-native-svg
 ```
 expo install react-native-safe-area-context
 ```
-**react-native-multi-selectbox(https://npm.io/package/react-native-multi-selectbox)**
+**[react-native-multi-selectbox](https://npm.io/package/react-native-multi-selectbox)**
 ```
 npm i react-native-multi-selectbox
 ```
