@@ -1,6 +1,5 @@
 /*
     Program Detail Screen
-    Has warning message: "Warning: Each child in a list should have a unique "key" prop."
 */
 import React , { useState, useEffect } from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView, Text, Button} from 'react-native';
@@ -33,18 +32,18 @@ const ScreenFour = props =>{
        <SafeAreaView style={styles.safeAreaView}>
            <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
-                    <Text style= {styles.textStyle}>These are program details:</Text>
+                    <Text style= {styles.textStyle}>Program Preview:</Text>
                     <Button title="START" onPress={() => props.navigation.navigate('ScreenFive', {selectedLabel: selectedLabel})}/>
-                    {workouts.map((entry) => {
+                    {workouts.map((entry, index1) => {
                         return(
                             // print out the program info on screen
-                            <View style={styles.itemContainer}>
+                            <View style={styles.itemContainer} key = {index1}>
                                 <Text>Name: {entry.name}</Text>
                                 <Text>Label: {entry.label}</Text>
                                 <Text>link: {entry.link}</Text>
-                                {entry.steps.map((step) => {
+                                {entry.steps.map((step, index2) => {
                                     return(
-                                        <View>
+                                        <View key = {index2}>
                                             <Text>{step[0]}</Text>
                                             <Text>{step[1]}</Text>
                                         </View>
