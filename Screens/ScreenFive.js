@@ -3,19 +3,21 @@
     Will process the workout and start the countdown
 */
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Button, TextInput} from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Button, TextInput, ScrollView} from 'react-native';
 
 const ScreenFive = props => {
 
 	/*
-		process the countdown of workout program
+		Process the countdown of workout program
 		(idea of source code: https://github.com/kbenavente/CS4540-Mobile-Development/blob/master/useEffect/App.js)
     */
 	const [timer, setTimer] = useState(0);
 	const [userTimer, setUserTimer] = useState('');
 	const [userSeconds, setUserSeconds] = useState(10);
 	const [timerStopped, setTimerStopped] = useState(true);
+
 	const [workout, setWorkouts] = useState([]);
+	const [workout_steps, setSteps] = useState([]);
 
 	useEffect(() => {
 
@@ -48,7 +50,14 @@ const ScreenFive = props => {
 					}
 				})}
 			})}
+			// set workout steps with the duration
+			setSteps(steps);
 
+			/*
+				Need to develop this part
+				- iterate each step of the workout program
+				- at each step, show the step's name and start the count down
+			*/
 			console.log("=======")
 			// iterate each step of the workout program
 			{steps.map((item) => {
@@ -95,6 +104,22 @@ const ScreenFive = props => {
 
 	return (
 		<SafeAreaView style={styles.safeAreaView}>
+				
+				<View style = {{flex: 7}}></View>
+				
+				{/* iterate each workout step  */}
+				{workout_steps.map((item, index) => {
+					return(
+						<View style={styles.titleContainer} key = {index}>
+							<Text style = {{fontSize: 30}}>{item[0]}</Text>
+							<View style = {{marginBottom: 10}}></View>
+							<Text style = {{fontSize: 20}}>{item[1]}</Text>
+						</View>
+					)
+				})}
+			
+
+				{/* This is the timer example in class
 
 				<Text style={styles.timerText}>{timer}</Text>
 
@@ -110,10 +135,10 @@ const ScreenFive = props => {
 					
 				}} />
 
-				<Button title={timerStopped ? 'Start Timer' : 'Stop Timer'} onPress={() => setTimerStopped(!timerStopped)} />
-
+				<Button title={timerStopped ? 'Start Timer' : 'Stop Timer'} onPress={() => setTimerStopped(!timerStopped)} /> 
+				
+				*/}
 		</SafeAreaView>
-
 	);
 
 };
@@ -125,6 +150,14 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
+	titleContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+
+
+
 	timerText: {
 		color: '#FFF',
 		fontSize: 70,

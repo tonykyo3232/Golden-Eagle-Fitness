@@ -39,13 +39,14 @@ const ScreenFour = props =>{
                             // print out the program info on screen
                             <View style={styles.itemContainer} key = {index1}>
                                 <Text>Name: {entry.name}</Text>
-                                <Text>Label: {entry.label}</Text>
-                                <Text>link: {entry.link}</Text>
+                                <View style={{marginBottom: 15}}></View>
+                                <Text>Link: {entry.link}</Text>
+                                <View style={{marginBottom: 15}}></View>
                                 {entry.steps.map((step, index2) => {
                                     return(
-                                        <View key = {index2}>
-                                            <Text>{step[0]}</Text>
-                                            <Text>{step[1]}</Text>
+                                        <View style={styles.itemContainer} key = {index2}>
+                                            <Text>Step {index2 + 1}: {step[0]}</Text>
+                                            <Text>Duration: {step[1]} seconds</Text>
                                         </View>
                                     )}
                                 )}
@@ -73,7 +74,8 @@ const styles = StyleSheet.create({
     itemContainer:{
         flex: 0.15,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 20
     },
     textStyle:{
         fontSize:responsiveFontSize(3) ,
