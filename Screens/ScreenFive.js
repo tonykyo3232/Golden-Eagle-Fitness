@@ -9,7 +9,8 @@ const ScreenFive = props => {
 
 	/*
 		Process the countdown of workout program
-		(idea of source code: https://github.com/kbenavente/CS4540-Mobile-Development/blob/master/useEffect/App.js)
+		Idea of source code: 
+		https://github.com/kbenavente/CS4540-Mobile-Development/blob/master/useEffect/App.js
     */
 	const [timer, setTimer] = useState(0);
 	const [userTimer, setUserTimer] = useState('');
@@ -20,9 +21,7 @@ const ScreenFive = props => {
 	const [workout_steps, setSteps] = useState([]);
 
 	useEffect(() => {
-
 		const fetchData = async () => {
-            
             // fetch the data from the website
             const responseWorkout = await fetch(`https://gef-db.herokuapp.com/workout/${props.route.params.selectedLabel}`);
             
@@ -52,70 +51,77 @@ const ScreenFive = props => {
 			})}
 			// set workout steps with the duration
 			setSteps(steps);
-
-			/*
-				Need to develop this part
-				- iterate each step of the workout program
-				- at each step, show the step's name and start the count down
-			*/
-			console.log("=======")
-			// iterate each step of the workout program
-			{steps.map((item) => {
-				// debug
-				console.log(item[0]) // step's name
-				console.log(item[1]) // duration for this step
-
-				let duration = Number(item[1]) // convert string to number type
-				console.log(typeof duration) // should be number type
-
-				// start counting down for each step
-				// while duration > 0
-				// decrease 1 second until 0, before 0 print out current step's name
-
-			})}
-			console.log("=======")
-
-			let intervalID = null;
-
-			if(!timerStopped) {
-				if(timer !== userSeconds) {
-
-					intervalID = setInterval(() => {
-						console.log('program in progress');
-						setTimer(timer + 1)
-					}, 1000);
-				} else {
-					intervalID = setInterval(() => {
-					console.log('program paused');
-					setTimer(0)
-					}, 1000);
-				}
-			}
-
-			return () => {
-				console.log('CLEANUP');
-				clearInterval(intervalID);
-			};
         };
-
         fetchData();
+	}, []);
 
-	}, [timer, timerStopped]);
+	useEffect(() => {
+		let intervalID = null;
+
+		if(!timerStopped) {
+			if(timer !== userSeconds) {
+
+				intervalID = setInterval(() => {
+					console.log('program in progress');
+					setTimer(timer + 1)
+				}, 1000);
+			} else {
+				intervalID = setInterval(() => {
+				console.log('program paused');
+				setTimer(0)
+				}, 1000);
+			}
+		}
+
+		return () => {
+			console.log('CLEANUP');
+			clearInterval(intervalID);
+		};
+	}, [timer, timerStopped])
 
 	return (
 		<SafeAreaView style={styles.safeAreaView}>
 				
 				<View style = {{flex: 7}}></View>
 				
-				{/* iterate each workout step  */}
+				{/* Need to develop this part
+				- iterate each step of the workout program
+				- at each step, show the step's name and start the count down */}
 				{workout_steps.map((item, index) => {
-					return(
-						<View style={styles.titleContainer} key = {index}>
-							<Text style = {{fontSize: 30}}>{item[0]}</Text>
-							<View style = {{marginBottom: 10}}></View>
-							<Text style = {{fontSize: 20}}>{item[1]}</Text>
-						</View>
-					)
+					
+					// obtain the current step and variable
+					let current_step = item[0];
+					let current_duration = Number(item[1]);
+
+					// intend to use the useState to change the step name and duration dynamically
+					// But by doing this will cause this error:
+					// "Error: Too many re-renders. React limits the number of renders to prevent an infinite loop"
+					/*
+						For example:
+						At the top:
+						const [step_name, setStepName] = useState('');
+						const [step_duration, setDuration] = useState(0);
+						...
+						At render part:
+						setStepName(current_step)
+						setDuration(current_duration)
+						<Text>{step_name}</Text>
+						<Text>{step_duration}</Text>
+					*/
+					while(current_duration > 0){
+						console.log(current_step)
+						console.log(current_duration)
+						current_duration--;
+					}
+
+					// return(
+					// 	<View style={styles.titleContainer} key = {index}>
+					// 		<Text style = {{fontSize: 30}}>{item[0]}</Text>
+					// 		<View style = {{marginBottom: 10}}></View>
+					// 		<Text style = {{fontSize: 20}}>{item[1]}</Text>
+					// 	</View>
+					// )
+
 				})}
 			
 
