@@ -126,13 +126,9 @@ const ScreenFive = props => {
 			
 
 				{/* This is the timer example in class
-
 				<Text style={styles.timerText}>{timer}</Text>
-
 				<Button title="Reset Timer" onPress={() => setTimer(timer + 1)} />
-
 				<TextInput value={userTimer} onChangeText={(text) => setUserTimer(text)} style={styles.userTimerInput} />
-
 				<Button title="Submit Timer" onPress={() => {
 					
 					setUserSeconds(Number(userTimer));
@@ -140,7 +136,6 @@ const ScreenFive = props => {
 					setUserTimer('');
 					
 				}} />
-
 				<Button title={timerStopped ? 'Start Timer' : 'Stop Timer'} onPress={() => setTimerStopped(!timerStopped)} /> 
 				
 				*/}
