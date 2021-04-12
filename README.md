@@ -8,6 +8,9 @@ desired weight or even strength.
 - Users can also customize workout programs. 
 - Users can set reminders for when their workout should begin throughout the day.
 
+## Before running the App
+- Make sure you can see the returned Json data from [this page](https://gef-db.herokuapp.com/workout)
+
 ## Project Requirements Checklist:
 - [x] Your project shall use proper JavaScript syntax
 - [x] Your project shall use Props as well as keep track of state (i.e. useState, this.state)
