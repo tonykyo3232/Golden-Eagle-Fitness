@@ -1,5 +1,5 @@
 /*
-    Program Detail Screen
+    Display workout video
 */
 import React , { useState, useEffect } from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView, Text, Button} from 'react-native';

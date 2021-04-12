@@ -46,9 +46,7 @@ const ScreenFour = props =>{
                             // print out the program info on screen
                             <View style={styles.itemContainer} key = {index1}>
                                 <Text>Name: {entry.name}</Text>
-                                <View style={{marginBottom: 15}}></View>
-                                <Text>Link: {entry.link}</Text>
-                                <View style={{marginBottom: 15}}></View>
+                                <View style={{marginBottom: 30}}></View>
                                 {entry.steps.map((step, index2) => {
                                     return(
                                         <View style={styles.itemContainer} key = {index2}>
