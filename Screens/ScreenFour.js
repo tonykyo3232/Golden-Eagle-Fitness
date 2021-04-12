@@ -9,6 +9,7 @@ const ScreenFour = props =>{
 
     const [workouts, setWorkouts] = useState([]);
     const [selectedLabel, setSelectedLabel] = useState({})
+    const [link, setLink] = useState({})
     useEffect(() => {
         const getWorkouts = async () => {
             // fetch the data from the website
@@ -21,6 +22,11 @@ const ScreenFour = props =>{
             // save the workouts
             setWorkouts(workouts);
    
+            // save the link
+            workouts.map((item) =>{
+                setLink(item.link)
+            })
+
             // save the workout label
             setSelectedLabel(props.route.params.selectedLabel);
         };
@@ -34,6 +40,7 @@ const ScreenFour = props =>{
                 <View style={styles.container}>
                     <Text style= {styles.textStyle}>Program Preview:</Text>
                     <Button title="START" onPress={() => props.navigation.navigate('ScreenFive', {selectedLabel: selectedLabel})}/>
+                    <Button title="Original Video" onPress={() => props.navigation.navigate('ScreenSix', {link: link})}/>
                     {workouts.map((entry, index1) => {
                         return(
                             // print out the program info on screen

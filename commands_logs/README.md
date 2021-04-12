@@ -36,6 +36,10 @@ npm i react-native-multi-selectbox
 ```
 npm install --save react-native-responsive-dimensions
 ```
+**[React Native Webview 11.0.0](https://www.npmjs.com/package/react-native-webview/v/11.0.0)**
+```
+npm i react-native-webview@11.0.0
+```
 ## useful links
 **link for searching the packages**
 https://npm.io/
