@@ -27,6 +27,14 @@ const Workout_Programs = [
     item: '5 Minute Home Workout',
     id: 'W4',
   },
+  {
+    item: '6 Pack Abs Workout',
+    id: 'W5',
+  },
+  {
+    item: '20 Minute Full Body Workout',
+    id: 'W6',
+  },
 ]
 
 // const Body_Parts = [
