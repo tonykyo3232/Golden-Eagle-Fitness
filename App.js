@@ -7,6 +7,7 @@ import ScreenThree from './Screens/ScreenThree';
 import ScreenFour from './Screens/ScreenFour';
 import ScreenFive from './Screens/ScreenFive';
 import ScreenSix from './Screens/ScreenSix';
+import Step1 from './Screens/Steps/Step1';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -37,6 +38,9 @@ const FitnessStack = () =>{
       title: 'Golden Eagle Fitness',
     }}/>
     <Stack.Screen name = "ScreenSix" component={ScreenSix} options={{
+      title: 'Golden Eagle Fitness',
+    }}/>
+    <Stack.Screen name = "Step1" component={Step1} options={{
       title: 'Golden Eagle Fitness',
     }}/>
   </Stack.Navigator> 

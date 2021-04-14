@@ -1,77 +1,67 @@
 /*
-    Design Workout Screen
+    Design Workout screen  - part 1
 */
-import React , {useState} from 'react';
-import {View, StyleSheet, SafeAreaView, TextInput, Text, Button} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet, SafeAreaView, TextInput , Text, Button, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {responsiveHeight, responsiveWidth, responsiveFontSize} from "react-native-responsive-dimensions";
 
-// 3rd party components form NPM (https://github.com/samad324/react-native-animated-multistep)
-import AnimatedMultistep from "react-native-animated-multistep";
+// create DismissKeyboard so user can click anywhere to dismiss the keyboard
+const DismissKeyboard = ({ children }) =>(
+	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+	  {children}
+	</TouchableWithoutFeedback>
+  );
 
-import Step1 from "./Steps/Step1";
-import Step2 from "./Steps/Step2";
+const ScreenThree = props =>{
 
-const allSteps = [
-    { name: "step 1", component: Step1 },
-    { name: "step 2", component: Step2 }
-];
+  const [workout_name, setName] = useState('');
+  const [link, setLink] = useState('');
+  const [number, setSteps] = useState('');
 
-export class ScreenThree extends React.Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {};
-    }
-  
-    onNext = () => {
-      console.log("Next");
-    };
-    onBack = () => {
-      console.log("Back");
-    };
-  
-    finish = state => {
-      console.log("TCL: App -> state", state);
-    };
+  return (
+    <DismissKeyboard>
+      <SafeAreaView style={ {flex: 1}}>
+        <View style={styles.container}>
+            <Text style= {styles.textStyle}>Design your fitness program!</Text>
+            <TextInput
+              style={{height: 40}}
+              placeholder="Enter Workout Name"
+              onChangeText={workout_name => setName(workout_name)}
+              defaultValue={workout_name}
+            />
+            <TextInput
+              style={{height: 40}}
+              placeholder="Enter Video Link"
+              onChangeText={link => setLink(link)}
+              defaultValue={link}
+            />
+            <TextInput
+              style={{height: 40}}
+              placeholder="Steps in Total"
+              onChangeText={number => setSteps(number)}
+              defaultValue={number}
+            />
+            <Button title="NEXT" onPress={() => props.navigation.navigate('Step1', {workout_name: workout_name, link: link, number: number})}/>
+          </View>
+        </SafeAreaView>
+      </DismissKeyboard>
+    );
 
-    render(){
-        return (
-            <SafeAreaView style={styles.safeAreaView}>
-
-                <View style={styles.headerContainer}>
-                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>Design your fitness program!</Text>
-                </View>
-
-                <View style={styles.lowerContainer}>
-                    <AnimatedMultistep
-                        steps={allSteps}
-                        onFinish={this.finish}
-                        animate={true}
-                        onBack={this.onBack}
-                        onNext={this.onNext}
-                    />
-                </View>
-
-            </SafeAreaView>
-        );
-    }  
-}
+};
 
 const styles = StyleSheet.create({
-    safeAreaView: {
-      flex: 1,
-      backgroundColor: '#16a085',
-      justifyContent: "flex-end",
-      alignItems: "center"
+    container:{
+        flex: 1,
+        backgroundColor: 'teal',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    headerContainer: {
-      flex: 1,
-      backgroundColor: 'yellow',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center'
+    buttonContainer:{
+        marginBottom:3
     },
-    lowerContainer: {
-        flex: 2
+    textStyle:{
+        fontSize:responsiveFontSize(3) ,
+        fontWeight: 'bold'
     }
 });
 
