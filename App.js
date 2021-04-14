@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
-import ScreenOne from './Screens/ScreenOne';
-import ScreenTwo from './Screens/ScreenTwo';
-import ScreenThree from './Screens/ScreenThree';
-import ScreenFour from './Screens/ScreenFour';
-import ScreenFive from './Screens/ScreenFive';
-import ScreenSix from './Screens/ScreenSix';
-import Step1 from './Screens/Steps/Step1';
+import Menu from './Screens/Menu';
+import ProgSelect from './Screens/Program/ProgSelect';
+import ProgDesign from './Screens/Customization/ProgDesign';
+import ProgReview from './Screens/Program/ProgReview';
+import ProgTimer from './Screens/Program/ProgTimer';
+import ProgVideo from './Screens/Program/ProgVideo';
+import Step1 from './Screens/Customization/Step1';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -22,22 +22,22 @@ const FitnessStack = () =>{
       }
     }}>
     
-    <Stack.Screen name = "ScreenOne" component={ScreenOne} options={{
+    <Stack.Screen name = "Menu" component={Menu} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "ScreenTwo" component={ScreenTwo} options={{
+    <Stack.Screen name = "ProgSelect" component={ProgSelect} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "ScreenThree" component={ScreenThree} options={{
+    <Stack.Screen name = "ProgDesign" component={ProgDesign} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "ScreenFour" component={ScreenFour} options={{
+    <Stack.Screen name = "ProgReview" component={ProgReview} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "ScreenFive" component={ScreenFive} options={{
+    <Stack.Screen name = "ProgTimer" component={ProgTimer} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "ScreenSix" component={ScreenSix} options={{
+    <Stack.Screen name = "ProgVideo" component={ProgVideo} options={{
       title: 'Golden Eagle Fitness',
     }}/>
     <Stack.Screen name = "Step1" component={Step1} options={{

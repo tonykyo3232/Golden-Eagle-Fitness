@@ -4,16 +4,16 @@
 import React from 'react';
 import {View, StyleSheet, SafeAreaView, Text, Button} from 'react-native';
 import {responsiveHeight, responsiveWidth, responsiveFontSize} from "react-native-responsive-dimensions";
-const ScreenOne = props =>{
+const Menu = props =>{
 
     return (
         <View style={styles.container}>
             <Text style= {styles.textStyle}>Let's get some workout!</Text>
             <View style= {styles.buttonContainer}>
-            <Button title="Select the workout program" onPress={() => props.navigation.navigate('ScreenTwo')}/>
+            <Button title="Select the workout program" onPress={() => props.navigation.navigate('ProgSelect')}/>
             </View>
             <View>
-            <Button title="Design your own workout program" onPress={() => props.navigation.navigate('ScreenThree')}/>
+            <Button title="Design your own workout program" onPress={() => props.navigation.navigate('ProgDesign')}/>
             </View>
         </View>
     );
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ScreenOne;
+export default Menu;

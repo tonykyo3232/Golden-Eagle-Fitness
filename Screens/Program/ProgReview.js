@@ -5,7 +5,7 @@ import React , { useState, useEffect } from 'react';
 import {View, StyleSheet, SafeAreaView, ScrollView, Text, Button} from 'react-native';
 import {responsiveHeight, responsiveWidth, responsiveFontSize} from "react-native-responsive-dimensions";
 
-const ScreenFour = props =>{
+const ProgReview = props =>{
 
     const [workouts, setWorkouts] = useState([]);
     const [selectedLabel, setSelectedLabel] = useState({})
@@ -39,8 +39,8 @@ const ScreenFour = props =>{
            <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
                     <Text style= {styles.textStyle}>Program Preview:</Text>
-                    <Button title="START" onPress={() => props.navigation.navigate('ScreenFive', {selectedLabel: selectedLabel})}/>
-                    <Button title="Original Video" onPress={() => props.navigation.navigate('ScreenSix', {link: link})}/>
+                    <Button title="START" onPress={() => props.navigation.navigate('ProgTimer', {selectedLabel: selectedLabel})}/>
+                    <Button title="Original Video" onPress={() => props.navigation.navigate('ProgVideo', {link: link})}/>
                     {workouts.map((entry, index1) => {
                         return(
                             // print out the program info on screen
@@ -88,4 +88,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ScreenFour;
+export default ProgReview;

@@ -56,7 +56,7 @@ const Workout_Programs = [
 //     },
 //   ]
 
-function ScreenTwo(props) {
+function ProgramSelect(props) {
   
   const [selectedLabel, setSelectedLabel] = useState({})
   const [selectedTeam, setSelectedTeam] = useState({})
@@ -91,7 +91,7 @@ function ScreenTwo(props) {
         isMulti
       /> */}
 
-      <Button title="Next" onPress={() => props.navigation.navigate('ScreenFour', {selectedLabel: selectedLabel})}/>
+      <Button title="Next" onPress={() => props.navigation.navigate('ProgReview', {selectedLabel: selectedLabel})}/>
 
     </View>
   )
@@ -108,4 +108,4 @@ function ScreenTwo(props) {
   }
 }
 
-export default ScreenTwo;
+export default ProgramSelect;
