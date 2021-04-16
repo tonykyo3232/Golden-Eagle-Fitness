@@ -10,7 +10,9 @@ const ScreenSix = props =>{
     return (
        <SafeAreaView style={styles.safeAreaView}>
            <ScrollView style={styles.scrollView}>
-                <WebView source = { {url: props.route.params.link}} javaScriptEnabled={true}/>
+                <View style = {styles.container}>
+                    <WebView source = {{ uri: props.route.params.link }}/>
+                </View>
             </ScrollView>
        </SafeAreaView>
     );
@@ -23,6 +25,9 @@ const styles = StyleSheet.create({
     scrollView: {
         marginHorizontal: 20,
       },
+    container: {
+        height: 345,
+     }
 });
 
 export default ScreenSix;
