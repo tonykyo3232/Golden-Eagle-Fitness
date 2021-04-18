@@ -12,6 +12,10 @@ import SelectBox from 'react-native-multi-selectbox'
 
 const Workout_Programs = [
   {
+    item: 'Testing',
+    id: 'W0',
+  },
+  {
     item: '7 Minute Quick and Effective Workout',
     id: 'W1',
   },
