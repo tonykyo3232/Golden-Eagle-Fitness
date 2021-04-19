@@ -3,7 +3,7 @@
     Will process the workout and start the countdown
 */
 import React from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Button, TextInput, ScrollView} from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Button, TextInput, ScrollView, Vibration} from 'react-native';
 
 class ProgTimer extends React.Component {
     
@@ -16,7 +16,8 @@ class ProgTimer extends React.Component {
 		  curr_step: '',
 		  curr_step_duration: '',
 		  index: 0,
-		  finished: false
+		  finished: false,
+		  hasVibrated: false
 		}
 	 }
 
@@ -80,6 +81,7 @@ class ProgTimer extends React.Component {
 					curr_step_duration: this.state.workout_steps[this.state.index][1],
 					index: prevState.index + 1,  
 				}))
+				Vibration.vibrate()
 			}
 			// case: during the each step's countdown
 			else{
@@ -88,11 +90,11 @@ class ProgTimer extends React.Component {
 				}))
 			}
 
-			console.log("======")
+			console.log("=== DEBUG Message===")
 			console.log("Current step: " + this.state.curr_step)
 			console.log("Current Duration: " + this.state.curr_step_duration)
-			console.log("Index: " + this.state.index)
-			console.log("======")
+			console.log("next step's index: " + this.state.index)
+			console.log("=====================")
 
 			// If the last step of the workout is completed, set the value of 'finished' to true
 			if(this.state.curr_step_duration == 0 && this.state.workout_steps[this.state.index] == null){
@@ -102,7 +104,15 @@ class ProgTimer extends React.Component {
 			}
 		}
 		else{
-			console.log("Workout Completed.")
+			if(this.state.hasVibrated == false){
+				console.log("Workout Completed.")
+				Vibration.vibrate()
+				this.setState({
+					hasVibrated: true,
+				})
+			}
+
+			// console.log("Workout Completed.")
 		}
 	}
 
