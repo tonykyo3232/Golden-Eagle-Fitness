@@ -3,7 +3,7 @@
     Will process the workout and start the countdown
 */
 import React from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Button, TextInput, ScrollView, Vibration} from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, ScrollView, Vibration} from 'react-native';
 import { Audio } from 'expo-av';
 
 class ProgTimer extends React.Component {
@@ -16,6 +16,8 @@ class ProgTimer extends React.Component {
 		  workout_steps: '',
 		  curr_step: '',
 		  curr_step_duration: '',
+		  next_step: '',
+		  next_step_duration: '',
 		  index: 0,
 		  finished: false,
 		  hasVibrated: false,
@@ -58,6 +60,9 @@ class ProgTimer extends React.Component {
 		// By default, save the workout steps curr_step and curr_duration for the first element
 		this.setState({curr_step: steps[0][0], curr_step_duration: steps[0][1]})
 
+		// By default, save the workout steps next_step and next_duration for the second element
+		this.setState({next_step: steps[1][0], next_step_duration: steps[1][1]})
+
 		// update index
 		this.setState({index: 1});
 
@@ -73,6 +78,7 @@ class ProgTimer extends React.Component {
 		this.interval = setInterval(this.dec, 1000)
     }
 
+	// Unmount the timer
 	componentWillUnmount(){
 		clearInterval(this.interval)
 	}
@@ -92,6 +98,22 @@ class ProgTimer extends React.Component {
 					curr_step_duration: this.state.workout_steps[this.state.index][1],
 					index: prevState.index + 1,  
 				}))
+
+				// update the info for next next step if exists
+				if(this.state.workout_steps[this.state.index] != null){
+					this.setState(prevState => ({
+						next_step: this.state.workout_steps[this.state.index][0],
+						next_step_duration: this.state.workout_steps[this.state.index][1],
+					}))
+				}
+				// when current step is the last step, assign null to these variables
+				else{
+					this.setState(prevState => ({
+						next_step: null,
+						next_step_duration: null
+					}))
+				}
+
 				Vibration.vibrate()
 			}
 			// case: during the each step's countdown
@@ -133,6 +155,7 @@ class ProgTimer extends React.Component {
 				<>
 					<Text>{this.state.curr_step}</Text>
 					<Text>{this.state.curr_step_duration}</Text>
+					{this.state.next_step == null? <Text>Last Step!</Text> : <Text>Next Step: {this.state.next_step} ({this.state.next_step_duration} Secs)</Text>}
 				</>
 			)
 		}
