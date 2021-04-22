@@ -4,6 +4,7 @@
 */
 import React from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Button, TextInput, ScrollView, Vibration} from 'react-native';
+import { Audio } from 'expo-av';
 
 class ProgTimer extends React.Component {
     
@@ -17,7 +18,8 @@ class ProgTimer extends React.Component {
 		  curr_step_duration: '',
 		  index: 0,
 		  finished: false,
-		  hasVibrated: false
+		  hasVibrated: false,
+		  sound: ''
 		}
 	 }
 
@@ -61,10 +63,19 @@ class ProgTimer extends React.Component {
 
 		console.log("Done fetching...")
 
+		// set up the sound
+		let sound_accomplished  = await Audio.Sound.createAsync(
+			require('../../assets/notification.mp3'), {shouldPlay: true}
+		);
+		this.setState({sound: sound_accomplished});
+
 		// call the decrement function
 		this.interval = setInterval(this.dec, 1000)
     }
 
+	componentWillUnmount(){
+		clearInterval(this.interval)
+	}
 
 	/*
 		Decrement function
@@ -90,7 +101,7 @@ class ProgTimer extends React.Component {
 				}))
 			}
 
-			console.log("=== DEBUG Message===")
+			console.log("=== DEBUG Message ===")
 			console.log("Current step: " + this.state.curr_step)
 			console.log("Current Duration: " + this.state.curr_step_duration)
 			console.log("next step's index: " + this.state.index)

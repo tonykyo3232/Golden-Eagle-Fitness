@@ -37,3 +37,4 @@ https://github.com/tonykyo3232/Golden-Eagle-Fitness-DB-Management
 
 **[React Native WebView (11.0.0)](https://www.npmjs.com/package/react-native-webview/v/11.0.0)**
 
+**[Expo Audio](https://docs.expo.io/versions/latest/sdk/audio/)**

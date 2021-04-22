@@ -40,6 +40,10 @@ npm install --save react-native-responsive-dimensions
 ```
 npm i react-native-webview@11.0.0
 ```
+**[Expo Audio](https://docs.expo.io/versions/latest/sdk/audio/)**
+```
+expo install expo-av
+```
 ## useful links
 **link for searching the packages**
 https://npm.io/
