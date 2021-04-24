@@ -14,6 +14,8 @@ class ProgTimer extends React.Component {
 		  label: props.route.params.selectedLabel,
 		  workout: '',
 		  workout_steps: '',
+		  prepared: false,
+		  pre_step_duration: 5,
 		  curr_step: '',
 		  curr_step_duration: '',
 		  next_step: '',
@@ -88,85 +90,108 @@ class ProgTimer extends React.Component {
 		Will be in charge of decrementing the step duration
 	*/
 	dec = () => {
-		if(this.state.finished == false){
-			console.log('decrementing...');
-			// case: if current step's countdown is finished and there exists the next step
-			// update curr_step, curr_step_duration, and index
-			if(this.state.curr_step_duration == 0){
+		// before starting the workout, have the few seconds countdown to let the user get ready
+		if(this.state.prepared == false){
+			if(this.state.pre_step_duration != 0){
 				this.setState(prevState => ({
-					curr_step: this.state.workout_steps[this.state.index][0],
-					curr_step_duration: this.state.workout_steps[this.state.index][1],
-					index: prevState.index + 1,  
+					pre_step_duration: prevState.pre_step_duration -1,
 				}))
-
-				// update the info for next next step if exists
-				if(this.state.workout_steps[this.state.index] != null){
-					this.setState(prevState => ({
-						next_step: this.state.workout_steps[this.state.index][0],
-						next_step_duration: this.state.workout_steps[this.state.index][1],
-					}))
-				}
-				// when current step is the last step, assign null to these variables
-				else{
-					this.setState(prevState => ({
-						next_step: null,
-						next_step_duration: null
-					}))
-				}
-
-				Vibration.vibrate()
 			}
-			// case: during the each step's countdown
 			else{
-				this.setState(prevState => ({
-					curr_step_duration: prevState.curr_step_duration -1,
-				}))
-			}
-
-			console.log("=== DEBUG Message ===")
-			console.log("Current step: " + this.state.curr_step)
-			console.log("Current Duration: " + this.state.curr_step_duration)
-			console.log("next step's index: " + this.state.index)
-			console.log("=====================")
-
-			// If the last step of the workout is completed, set the value of 'finished' to true
-			if(this.state.curr_step_duration == 0 && this.state.workout_steps[this.state.index] == null){
-				this.setState({
-					finished: true,
-				})
+				this.setState({prepared: true});
 			}
 		}
+		// start the workout timing
 		else{
-			if(this.state.hasVibrated == false){
-				console.log("Workout Completed.")
-				Vibration.vibrate()
-				this.setState({
-					hasVibrated: true,
-				})
-			}
+			if(this.state.finished == false){
+				console.log('decrementing...');
+				// case: if current step's countdown is finished and there exists the next step
+				// update curr_step, curr_step_duration, and index
+				if(this.state.curr_step_duration == 0){
+					this.setState(prevState => ({
+						curr_step: this.state.workout_steps[this.state.index][0],
+						curr_step_duration: this.state.workout_steps[this.state.index][1],
+						index: prevState.index + 1,  
+					}))
 
-			// console.log("Workout Completed.")
+					// update the info for next next step if exists
+					if(this.state.workout_steps[this.state.index] != null){
+						this.setState(prevState => ({
+							next_step: this.state.workout_steps[this.state.index][0],
+							next_step_duration: this.state.workout_steps[this.state.index][1],
+						}))
+					}
+					// when current step is the last step, assign null to these variables
+					else{
+						this.setState(prevState => ({
+							next_step: null,
+							next_step_duration: null
+						}))
+					}
+
+					Vibration.vibrate()
+				}
+				// case: during the each step's countdown
+				else{
+					this.setState(prevState => ({
+						curr_step_duration: prevState.curr_step_duration -1,
+					}))
+				}
+
+				console.log("=== DEBUG Message ===")
+				console.log("Current step: " + this.state.curr_step)
+				console.log("Current Duration: " + this.state.curr_step_duration)
+				console.log("next step's index: " + this.state.index)
+				console.log("=====================")
+
+				// If the last step of the workout is completed, set the value of 'finished' to true
+				if(this.state.curr_step_duration == 0 && this.state.workout_steps[this.state.index] == null){
+					this.setState({
+						finished: true,
+					})
+				}
+			}
+			else{
+				if(this.state.hasVibrated == false){
+					console.log("Workout Completed.")
+					Vibration.vibrate()
+					this.setState({
+						hasVibrated: true,
+					})
+				}
+
+				// console.log("Workout Completed.")
+			}
 		}
 	}
 
     render() {
-		if(this.state.finished == false){
-			return(
+		if(this.state.prepared == false){
+			return (
 				<>
-					<Text>{this.state.curr_step}</Text>
-					<Text>{this.state.curr_step_duration}</Text>
-					{this.state.next_step == null? <Text>Last Step!</Text> : <Text>Next Step: {this.state.next_step} ({this.state.next_step_duration} Secs)</Text>}
+					<Text>Get Ready!</Text>
+					<Text>{this.state.pre_step_duration}</Text>
 				</>
 			)
 		}
 		else{
-			return(
-				<>
-					<Text>Workout Completed!</Text>
-				</>
-			)
+			if(this.state.finished == false){
+				return(
+					<>
+						<Text>{this.state.curr_step}</Text>
+						<Text>{this.state.curr_step_duration}</Text>
+						{this.state.next_step == null? <Text>Last Step!</Text> : <Text>Next Step: {this.state.next_step} ({this.state.next_step_duration} Secs)</Text>}
+					</>
+				)
+			}
+			else{
+				return(
+					<>
+						<Text>Workout Completed!</Text>
+					</>
+				)
+			}
 		}
-
     }
 }
 
