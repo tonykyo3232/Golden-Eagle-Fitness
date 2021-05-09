@@ -2,7 +2,9 @@
     Program Selection Screen
 */
 import React, { useState, useEffect } from 'react'
-import { Text, View, Button, SafeAreaView} from 'react-native'
+import { Text, View, Button, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native'
+import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveScreenHeight } from "react-native-responsive-dimensions";
+
 
 // 3rd party components form NPM (https://github.com/sauzy34/react-native-multi-selectbox)
 import SelectBox from 'react-native-multi-selectbox'
@@ -61,31 +63,38 @@ const Workout_Programs = [
 //   ]
 
 function ProgramSelect(props) {
-  
+
   const [selectedLabel, setSelectedLabel] = useState({})
   const [selectedTeam, setSelectedTeam] = useState({})
   // const [selectedTeams, setSelectedTeams] = useState([])
 
   return (
-    <View style={{ margin: 30 }}>
+    <View style={{ backgroundColor: '#385057', flex: 1 }}>
+      <View style={{ margin: 30 }}>
 
-      <View style={{ width: '100%', alignItems: 'center' }}>
-        <Text style={{ fontSize: 30, paddingBottom: 20 }}>Select Workout Program</Text>
-      </View>
+        <View style={{ width: '100%', alignItems: 'center' }}>
+          <Text style={{ fontSize: 30, paddingBottom: 20, color: 'white' }}>Select Workout Program</Text>
+        </View>
 
-      {/* <Text style={{ fontSize: 20, paddingBottom: 10 }}>Option1: Find the workout program</Text> */}
-      <Text style={{ fontSize: 20, paddingBottom: 10 }}>Find the workout program</Text>
-      <SelectBox
-        label="Select single"
-        options={Workout_Programs}
-        value={selectedTeam}
-        onChange={onChange()}
-        hideInputFilter={false}
-      />
+        {/* <Text style={{ fontSize: 20, paddingBottom: 10 }}>Option1: Find the workout program</Text> */}
+        <Text style={{ fontSize: 20, paddingBottom: 10, color: 'white' }}>Find the workout program</Text>
+        <SelectBox
+          label="Select single"
+          options={Workout_Programs}
+          value={selectedTeam}
+          onChange={onChange()}
+          hideInputFilter={false}
+          labelStyle={{ color: 'white' }}
+          optionsLabelStyle={{ color: 'white' }}
+          inputFilterStyle={{ color: 'white' }}
+          arrowIconColor='#f4b71e'
+          searchIconColor='white'
+          inputPlaceholder='Search'
+        />
 
-      {/* <View style={{ height: 40 }} /> */}
-      
-      {/* <Text style={{ fontSize: 20, paddingBottom: 10 }}>Option2: Choose the part of body you want to workout</Text>
+        {/* <View style={{ height: 40 }} /> */}
+
+        {/* <Text style={{ fontSize: 20, paddingBottom: 10 }}>Option2: Choose the part of body you want to workout</Text>
       <SelectBox
         label="Select multiple"
         options={Body_Parts}
@@ -94,9 +103,18 @@ function ProgramSelect(props) {
         onTapClose={onMultiChange()}
         isMulti
       /> */}
+        <View style={styles.button}>
 
-      <Button title="Next" onPress={() => props.navigation.navigate('ProgReview', {selectedLabel: selectedLabel})}/>
+          {/* <Button title="Select the workout program" onPress={() => props.navigation.navigate('ProgSelect')}/> */}
+          <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgReview', { selectedLabel: selectedLabel })}>
+            <View style={styles.buttonContainer}>
+              <Text style={styles.buttonText}>Next</Text>
+            </View>
+          </TouchableOpacity>
 
+        </View>
+        {/* <Button title="Next" onPress={() => props.navigation.navigate('ProgReview', { selectedLabel: selectedLabel })} /> */}
+      </View>
     </View>
   )
 
@@ -111,5 +129,20 @@ function ProgramSelect(props) {
     }
   }
 }
+const styles = StyleSheet.create({
+  buttonContainer: {
+    borderRadius: responsiveFontSize(2),
+    backgroundColor: '#f4b71e',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: responsiveFontSize(1),
+  },
+  buttonText: {
+    fontSize: responsiveFontSize(2)
+  },
+  button: {
+    marginTop: responsiveHeight(5),
+  }
+});
 
 export default ProgramSelect;
