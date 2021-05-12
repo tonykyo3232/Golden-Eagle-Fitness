@@ -5,6 +5,10 @@ import React, { useState, useEffect } from 'react'
 import { Text, View, Button, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native'
 import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveScreenHeight } from "react-native-responsive-dimensions";
 
+// moved data to its own file for redux purposes.
+//Still functions the same at the moment
+import {Workout_Programs} from '../Program/workoutPrograms'
+
 
 // 3rd party components form NPM (https://github.com/sauzy34/react-native-multi-selectbox)
 import SelectBox from 'react-native-multi-selectbox'
@@ -12,36 +16,36 @@ import SelectBox from 'react-native-multi-selectbox'
 
 // Options data must contain 'item' & 'id' keys
 
-const Workout_Programs = [
-  {
-    item: 'Testing',
-    id: 'W0',
-  },
-  {
-    item: '7 Minute Quick and Effective Workout',
-    id: 'W1',
-  },
-  {
-    item: '5 Minute Full Body Workout',
-    id: 'W2',
-  },
-  {
-    item: '15 Minute Beginner Workout for Fat Burning',
-    id: 'W3',
-  },
-  {
-    item: '5 Minute Home Workout',
-    id: 'W4',
-  },
-  {
-    item: '6 Pack Abs Workout',
-    id: 'W5',
-  },
-  {
-    item: '20 Minute Full Body Workout',
-    id: 'W6',
-  },
-]
+// const Workout_Programs = [
+//   {
+//     item: 'Testing',
+//     id: 'W0',
+//   },
+//   {
+//     item: '7 Minute Quick and Effective Workout',
+//     id: 'W1',
+//   },
+//   {
+//     item: '5 Minute Full Body Workout',
+//     id: 'W2',
+//   },
+//   {
+//     item: '15 Minute Beginner Workout for Fat Burning',
+//     id: 'W3',
+//   },
+//   {
+//     item: '5 Minute Home Workout',
+//     id: 'W4',
+//   },
+//   {
+//     item: '6 Pack Abs Workout',
+//     id: 'W5',
+//   },
+//   {
+//     item: '20 Minute Full Body Workout',
+//     id: 'W6',
+//   },
+// ]
 
 // const Body_Parts = [
 //     {
