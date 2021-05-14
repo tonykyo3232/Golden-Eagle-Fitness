@@ -8,6 +8,7 @@ import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveScreen
 // moved data to its own file for redux purposes.
 //Still functions the same at the moment
 import {Workout_Programs} from '../Program/workoutPrograms'
+import {useSelector} from 'react-redux'
 
 
 // 3rd party components form NPM (https://github.com/sauzy34/react-native-multi-selectbox)
@@ -71,7 +72,9 @@ function ProgramSelect(props) {
   const [selectedLabel, setSelectedLabel] = useState({})
   const [selectedTeam, setSelectedTeam] = useState({})
   // const [selectedTeams, setSelectedTeams] = useState([])
-
+  const workouts= useSelector(state=>state.workouts.workouts)
+  // console.log('pause')
+  // console.log(workouts)
   return (
     <View style={{ backgroundColor: '#385057', flex: 1 }}>
       <View style={{ margin: 30 }}>
@@ -79,12 +82,11 @@ function ProgramSelect(props) {
         <View style={{ width: '100%', alignItems: 'center' }}>
           <Text style={{ fontSize: 30, paddingBottom: 20, color: 'white' }}>Select Workout Program</Text>
         </View>
-
         {/* <Text style={{ fontSize: 20, paddingBottom: 10 }}>Option1: Find the workout program</Text> */}
         <Text style={{ fontSize: 20, paddingBottom: 10, color: 'white' }}>Find the workout program</Text>
         <SelectBox
           label="Select single"
-          options={Workout_Programs}
+          options={workouts}
           value={selectedTeam}
           onChange={onChange()}
           hideInputFilter={false}

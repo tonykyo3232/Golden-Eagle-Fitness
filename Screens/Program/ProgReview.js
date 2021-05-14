@@ -2,7 +2,7 @@
     Program Detail Screen
 */
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, SafeAreaView, ScrollView, Text, Button, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, SafeAreaView, ScrollView, Text, Button, TouchableOpacity, FlatList } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
 
 const ProgReview = props => {
@@ -33,10 +33,26 @@ const ProgReview = props => {
 
         getWorkouts();
     }, []);
-
+    const renderItem = listItem => {
+        return (
+            <View style={styles.itemContainer}>
+                <Text style={styles.entryText}>Name: {listItem.item.name}</Text>
+                <View style={{ marginBottom: 30 }}></View>
+                {listItem.item.steps.map((step, index2) => {
+                    return (
+                        <View style={styles.itemContainer} key={index2}>
+                            <Text style={styles.entryText}>Step {index2 + 1}: {step[0]}</Text>
+                            <Text style={styles.entryText}>Duration: {step[1]} seconds</Text>
+                        </View>
+                    )
+                }
+                )}
+            </View>
+        );
+    }
     return (
         <SafeAreaView style={styles.safeAreaView}>
-            <ScrollView style={styles.scrollView}>
+
                 <View style={styles.container}>
                     <View style={{ margin: responsiveFontSize(2) }}>
                         <Text style={styles.textStyle}>Program Preview:</Text>
@@ -57,6 +73,13 @@ const ProgReview = props => {
                         </TouchableOpacity>
 
                     </View>
+                    
+                    <FlatList
+                        data={workouts}
+                        renderItem={renderItem}
+                    />
+
+{/* 
                     {workouts.map((entry, index1) => {
                         return (
                             // print out the program info on screen
@@ -74,9 +97,9 @@ const ProgReview = props => {
                                 )}
                             </View>
                         )
-                    })}
+                    })} */}
                 </View>
-            </ScrollView>
+
         </SafeAreaView>
     );
 };

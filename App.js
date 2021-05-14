@@ -12,10 +12,19 @@ import Step1 from './Screens/Customization/Step1';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+import {combineReducers, createStore} from 'redux'
+import workoutReducer from './store/reducers/workoutsReducer';
+import {Provider} from 'react-redux'
+const rootReducer= combineReducers({
+  workouts:workoutReducer
+});
+const store = createStore(rootReducer);
+
 const Stack = createStackNavigator();
 
 const FitnessStack = () =>{
   return (
+    <Provider store={store}>
     <Stack.Navigator screenOptions={{
       headerStyle:{
         backgroundColor: '#f4b71e'
@@ -44,6 +53,7 @@ const FitnessStack = () =>{
       title: 'Golden Eagle Fitness',
     }}/>
   </Stack.Navigator> 
+  </Provider>
   );
 };
 
