@@ -5,8 +5,8 @@ desired weight or even strength.
 
 ## How is it to be used?
 - Users can choose the workout programs we have provided within the app.
-- Users can also customize workout programs. 
-- Users can set reminders for when their workout should begin throughout the day.
+- Users can also find out his/her BMI. 
+- Users can see the recent workouts he/she has selected.
 
 ## Before running the App
 - Make sure you can see the returned Json data from [this page](https://gef-db.herokuapp.com/workout)
@@ -18,7 +18,7 @@ desired weight or even strength.
 - [x] Your project shall use Lists (ScrollView, FlatList) and User Input (TextInput)
 - [x] Your project shall be a Multiple Page Application and utilize React Navigation (Note: Single Page Applications will not be accepted)
 - [x] Your project shall include 3rd party components form NPM
-- [ ] Your project shall use Redux to keep track of overall application state
+- [x] Your project shall use Redux to keep track of overall application state
 - [x] Your project shall take device performance in mind by applying efficient algorithms and modern React Native Performance methods
 - [x] Your project shall run without crashing on both iOS and/or Android devices
 
