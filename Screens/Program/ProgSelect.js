@@ -8,11 +8,12 @@ import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveScreen
 // moved data to its own file for redux purposes.
 //Still functions the same at the moment
 import {Workout_Programs} from '../Program/workoutPrograms'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 
 
 // 3rd party components form NPM (https://github.com/sauzy34/react-native-multi-selectbox)
 import SelectBox from 'react-native-multi-selectbox'
+import {toggleFavorite} from '../../store/actions/actionTypes';
 // import { xorBy } from 'lodash'
 
 // Options data must contain 'item' & 'id' keys
@@ -68,7 +69,9 @@ import SelectBox from 'react-native-multi-selectbox'
 //   ]
 
 function ProgramSelect(props) {
+  const dispatch=useDispatch();
 
+  const toggleFavorites= (id)=> dispatch({type: toggleFavorite, id })
   const [selectedLabel, setSelectedLabel] = useState({})
   const [selectedTeam, setSelectedTeam] = useState({})
   // const [selectedTeams, setSelectedTeams] = useState([])
@@ -112,7 +115,10 @@ function ProgramSelect(props) {
         <View style={styles.button}>
 
           {/* <Button title="Select the workout program" onPress={() => props.navigation.navigate('ProgSelect')}/> */}
-          <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgReview', { selectedLabel: selectedLabel })}>
+          <TouchableOpacity style={styles.buttonStyle} onPress={() => {
+            props.navigation.navigate('ProgReview', { selectedLabel: selectedLabel })
+            toggleFavorites(selectedLabel)
+          }}>
             <View style={styles.buttonContainer}>
               <Text style={styles.buttonText}>Next</Text>
             </View>

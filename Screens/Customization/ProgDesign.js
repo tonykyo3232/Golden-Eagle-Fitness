@@ -2,9 +2,10 @@
     Design Workout screen  - part 1
 */
 import React, { useState } from 'react';
-import { View, StyleSheet, SafeAreaView, TextInput, Text, Button, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
+import { View, FlatList, StyleSheet, SafeAreaView, TextInput, Text, Button, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
-
+import {useSelector,useDispatch} from 'react-redux'
+import {toggleFavorite} from '../../store/actions/actionTypes';
 // create DismissKeyboard so user can click anywhere to dismiss the keyboard
 const DismissKeyboard = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -18,11 +19,26 @@ const ScreenThree = props => {
   const [link, setLink] = useState('');
   const [number, setSteps] = useState('');
 
+  const dispatch=useDispatch();
+  const toggleFavorites= (id)=> dispatch({type: toggleFavorite, id })
+  const favWorkouts= useSelector(state=>state.workouts.favWorkouts)
+
+  const renderItem = listItem =>{
+    return(
+      <View>
+        <Text>{listItem.item.item}</Text>
+      </View>
+    )
+  }
   return (
     <DismissKeyboard>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
-          <Text style={styles.textStyle}>Design your fitness program!</Text>
+          <FlatList
+          data={favWorkouts}
+          renderItem={renderItem}
+          />
+          {/* <Text style={styles.textStyle}>Design your fitness program!</Text>
           <TextInput
             style={{ height: 40 }}
             placeholder="Enter Workout Name"
@@ -46,7 +62,7 @@ const ScreenThree = props => {
             <View style={styles.buttonContainer}>
               <Text style={styles.buttonText}>Next</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </SafeAreaView>
     </DismissKeyboard>
