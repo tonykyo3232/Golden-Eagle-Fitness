@@ -33,7 +33,7 @@ const Menu = props => {
                 </View>
                 <View>
                     {/* <Button title="Design your own workout program" onPress={() => props.navigation.navigate('ProgDesign')}/> */}
-                    <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgDesign')}><Text style={styles.buttonText}>Design your own workout program</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgBMICal')}><Text style={styles.buttonText}>Calculte your BMI</Text></TouchableOpacity>
                 </View>
             </View>
         </View>

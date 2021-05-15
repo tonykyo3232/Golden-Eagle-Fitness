@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import Menu from './Screens/Menu';
 import ProgSelect from './Screens/Program/ProgSelect';
-import ProgDesign from './Screens/Customization/ProgDesign';
+import ProgBMICal from './Screens/Customization/ProgBMICal';
 import ProgReview from './Screens/Program/ProgReview';
 import ProgTimer from './Screens/Program/ProgTimer';
 import ProgVideo from './Screens/Program/ProgVideo';
-import Step1 from './Screens/Customization/Step1';
+import BMIResult from './Screens/Customization/BMIResult';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -37,7 +37,7 @@ const FitnessStack = () =>{
     <Stack.Screen name = "ProgSelect" component={ProgSelect} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "ProgDesign" component={ProgDesign} options={{
+    <Stack.Screen name = "ProgBMICal" component={ProgBMICal} options={{
       title: 'Golden Eagle Fitness',
     }}/>
     <Stack.Screen name = "ProgReview" component={ProgReview} options={{
@@ -49,7 +49,7 @@ const FitnessStack = () =>{
     <Stack.Screen name = "ProgVideo" component={ProgVideo} options={{
       title: 'Golden Eagle Fitness',
     }}/>
-    <Stack.Screen name = "Step1" component={Step1} options={{
+    <Stack.Screen name = "BMIResult" component={BMIResult} options={{
       title: 'Golden Eagle Fitness',
     }}/>
   </Stack.Navigator> 

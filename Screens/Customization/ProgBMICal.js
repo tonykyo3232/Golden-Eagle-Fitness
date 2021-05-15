@@ -1,11 +1,12 @@
 /*
-    Design Workout screen  - part 1
+    BMI Calculation Page
 */
 import React, { useState } from 'react';
 import { View, FlatList, StyleSheet, SafeAreaView, TextInput, Text, Button, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
 import {useSelector,useDispatch} from 'react-redux'
 import {toggleFavorite} from '../../store/actions/actionTypes';
+
 // create DismissKeyboard so user can click anywhere to dismiss the keyboard
 const DismissKeyboard = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -13,15 +14,15 @@ const DismissKeyboard = ({ children }) => (
   </TouchableWithoutFeedback>
 );
 
-const ScreenThree = props => {
+const ProgBMICal = props => {
 
-  const [workout_name, setName] = useState('');
-  const [link, setLink] = useState('');
-  const [number, setSteps] = useState('');
+  const [weight, setWeight] = useState('');
+  const [feet, setFeet] = useState('');
+  const [inch, setInch] = useState('');
 
   const dispatch=useDispatch();
-  const toggleFavorites= (id)=> dispatch({type: toggleFavorite, id })
-  const favWorkouts= useSelector(state=>state.workouts.favWorkouts)
+  const toggleFavorites = (id) => dispatch({type: toggleFavorite, id })
+  const favWorkouts= useSelector(state => state.workouts.favWorkouts)
 
   const renderItem = listItem =>{
     return(
@@ -38,31 +39,34 @@ const ScreenThree = props => {
           data={favWorkouts}
           renderItem={renderItem}
           />
-          {/* <Text style={styles.textStyle}>Design your fitness program!</Text>
+          <Text style={styles.textStyle}>Find out your BMI</Text>
           <TextInput
             style={{ height: 40 }}
-            placeholder="Enter Workout Name"
-            onChangeText={workout_name => setName(workout_name)}
-            defaultValue={workout_name}
+            placeholder="Enter the weight(lbs)"
+            keyboardType='numeric'
+            onChangeText={weight => setWeight(weight)}
+            defaultValue={weight}
           />
           <TextInput
             style={{ height: 40 }}
-            placeholder="Enter Video Link"
-            onChangeText={link => setLink(link)}
-            defaultValue={link}
+            placeholder="Enter feets"
+            keyboardType='numeric'
+            onChangeText={feet => setFeet(feet)}
+            defaultValue={feet}
           />
           <TextInput
             style={{ height: 40 }}
-            placeholder="Steps in Total"
-            onChangeText={number => setSteps(number)}
-            defaultValue={number}
+            placeholder="Enter the inches"
+            keyboardType='numeric'
+            onChangeText={inch => setInch(inch)}
+            defaultValue={inch}
           />
 
-          <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('Step1', { workout_name: workout_name, link: link, number: number })} >
+          <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('BMIResult', { weight: weight, feet: feet, inch: inch })} >
             <View style={styles.buttonContainer}>
               <Text style={styles.buttonText}>Next</Text>
             </View>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </DismissKeyboard>
@@ -73,7 +77,7 @@ const ScreenThree = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#385057',
+    backgroundColor: 'teal',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -100,4 +104,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ScreenThree;
+export default ProgBMICal;
