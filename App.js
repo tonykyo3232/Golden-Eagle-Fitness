@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import Menu from './Screens/Menu';
 import ProgSelect from './Screens/Program/ProgSelect';
-import ProgBMICal from './Screens/Customization/ProgBMICal';
+import ProgBMICal from './Screens/BMI_Calculation/ProgBMICal';
 import ProgReview from './Screens/Program/ProgReview';
 import ProgTimer from './Screens/Program/ProgTimer';
 import ProgVideo from './Screens/Program/ProgVideo';
-import BMIResult from './Screens/Customization/BMIResult';
+import BMIResult from './Screens/BMI_Calculation/BMIResult';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
