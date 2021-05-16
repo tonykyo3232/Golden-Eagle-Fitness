@@ -1,3 +1,4 @@
+// Options data must contain 'item' & 'id' keys
 export const Workout_Programs = [
     {
       item: 'Testing',

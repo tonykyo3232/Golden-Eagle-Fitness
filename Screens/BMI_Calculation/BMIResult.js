@@ -8,7 +8,7 @@
     between 30 and 39.9 – you're in the obese range
 */
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, SafeAreaView, TextInput , Text, Button, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {View, StyleSheet, SafeAreaView, Text, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {responsiveHeight, responsiveWidth, responsiveFontSize} from "react-native-responsive-dimensions";
 
 // create DismissKeyboard so user can click anywhere to dismiss the keyboard
@@ -21,6 +21,7 @@ const DismissKeyboard = ({ children }) =>(
 const BMIResult = props =>{
 
   const [status, setStatus] = useState('');
+  const [result_BMI, setBMI] = useState('');
 
   useEffect(() => {
     const calBMI = () => {
@@ -35,6 +36,7 @@ const BMIResult = props =>{
       // BMI calculation formula
       // Calculation: [weight (lb) / height (in) / height (in)] x 703
       let BMI = ((weight/2.205)/ (feet_inch * feet_inch));
+      setBMI(BMI);
 
       // debug
       console.log("BMI: " + BMI);
@@ -72,6 +74,7 @@ const BMIResult = props =>{
             <Text>Weight: {props.route.params.weight}</Text>
             <Text>Feets: {props.route.params.feet}</Text>
             <Text>Inches: {props.route.params.inch}</Text>
+            <Text>BMI: {result_BMI}</Text>
             <Text>Your BMI condition is: {status}</Text>
           </View>
         </SafeAreaView>

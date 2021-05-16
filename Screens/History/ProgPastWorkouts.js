@@ -1,11 +1,12 @@
 /*
-    Design Workout screen  - part 1
+    Showed the workouts that user have selected
 */
 import React, { useState } from 'react';
 import { View, FlatList, StyleSheet, SafeAreaView, TextInput, Text, Button, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
 import {useSelector,useDispatch} from 'react-redux'
 import {toggleFavorite} from '../../store/actions/actionTypes';
+
 // create DismissKeyboard so user can click anywhere to dismiss the keyboard
 const DismissKeyboard = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -14,11 +15,6 @@ const DismissKeyboard = ({ children }) => (
 );
 
 const ProgPastWorkouts = props => {
-
-  const [workout_name, setName] = useState('');
-  const [link, setLink] = useState('');
-  const [number, setSteps] = useState('');
-
   const dispatch=useDispatch();
   const toggleFavorites= (id)=> dispatch({type: toggleFavorite, id })
   const favWorkouts= useSelector(state=>state.workouts.favWorkouts)
@@ -34,8 +30,6 @@ const ProgPastWorkouts = props => {
     <DismissKeyboard>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
-
-
           <View>
             <Text style={{fontSize:responsiveFontSize(4), color: 'white'}}>Recent Workouts</Text>
           </View>
@@ -43,36 +37,10 @@ const ProgPastWorkouts = props => {
           data={favWorkouts}
           renderItem={renderItem}
           />
-          {/* <Text style={styles.textStyle}>Design your fitness program!</Text>
-          <TextInput
-            style={{ height: 40 }}
-            placeholder="Enter Workout Name"
-            onChangeText={workout_name => setName(workout_name)}
-            defaultValue={workout_name}
-          />
-          <TextInput
-            style={{ height: 40 }}
-            placeholder="Enter Video Link"
-            onChangeText={link => setLink(link)}
-            defaultValue={link}
-          />
-          <TextInput
-            style={{ height: 40 }}
-            placeholder="Steps in Total"
-            onChangeText={number => setSteps(number)}
-            defaultValue={number}
-          />
-
-          <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('Step1', { workout_name: workout_name, link: link, number: number })} >
-            <View style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>Next</Text>
-            </View>
-          </TouchableOpacity> */}
         </View>
       </SafeAreaView>
     </DismissKeyboard>
   );
-
 };
 
 const styles = StyleSheet.create({

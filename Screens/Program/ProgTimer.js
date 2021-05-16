@@ -183,14 +183,9 @@ class ProgTimer extends React.Component {
 			if (this.state.finished == false) {
 				return (
 					<View style={styles.workoutContainer}>
-						{/* <View style={styles.titleContainer}>
 						<Text style={styles.workoutText}>{this.state.curr_step}</Text>
-						</View> */}
-
-							<Text style={styles.workoutText}>{this.state.curr_step}</Text>
-							<Text style={styles.workoutText}>{this.state.curr_step_duration}</Text>
-							{this.state.next_step == null ? <Text style={styles.workoutText}>Last Step!</Text> : <Text style={styles.nextStepText}>Next Step: {this.state.next_step} ({this.state.next_step_duration} Secs)</Text>}
-						
+						<Text style={styles.workoutText}>{this.state.curr_step_duration}</Text>
+						{this.state.next_step == null ? <Text style={styles.workoutText}>Last Step!</Text> : <Text style={styles.nextStepText}>Next Step: {this.state.next_step} ({this.state.next_step_duration} Secs)</Text>}
 					</View>
 				)
 			}

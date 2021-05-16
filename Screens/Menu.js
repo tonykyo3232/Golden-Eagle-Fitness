@@ -2,7 +2,7 @@
     Menu screen
 */
 import React from 'react';
-import { View, StyleSheet, SafeAreaView, Text, Button, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveScreenHeight } from "react-native-responsive-dimensions";
 
 
@@ -22,7 +22,6 @@ const Menu = props => {
                     />
                 </View>
                 <View style={styles.buttonContainer}>
-                    {/* <Button title="Select the workout program" onPress={() => props.navigation.navigate('ProgSelect')}/> */}
                     <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgSelect')}><Text style={styles.buttonText}>Select the workout program</Text></TouchableOpacity>
                 </View>
                 <View style={styles.imageContainer}>
@@ -46,7 +45,6 @@ const Menu = props => {
                 <View>
                 </View>
                 <View style={styles.buttonContainer}>
-                    {/* <Button title="Design your own workout program" onPress={() => props.navigation.navigate('ProgDesign')}/> */}
                     <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgPastWorkouts')}><Text style={styles.buttonText}>Recent Workouts</Text></TouchableOpacity>
                 </View>
             </View>

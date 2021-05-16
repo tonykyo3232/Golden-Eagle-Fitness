@@ -2,7 +2,7 @@
     BMI Calculation Page
 */
 import React, { useState } from 'react';
-import { View, FlatList, StyleSheet, SafeAreaView, TextInput, Text, Button, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TextInput, Text, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize } from "react-native-responsive-dimensions";
 import {useSelector,useDispatch} from 'react-redux'
 import {toggleFavorite} from '../../store/actions/actionTypes';
@@ -61,7 +61,7 @@ const ProgBMICal = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#385057',
+    backgroundColor: 'teal',
     justifyContent: 'center',
     alignItems: 'center'
   },
