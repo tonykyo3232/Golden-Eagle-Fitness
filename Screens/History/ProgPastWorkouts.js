@@ -25,8 +25,8 @@ const ScreenThree = props => {
 
   const renderItem = listItem =>{
     return(
-      <View>
-        <Text>{listItem.item.item}</Text>
+      <View style={{margin:responsiveHeight(2)}}>
+        <Text style= {{fontSize:responsiveFontSize(2), color:'white'}}>{listItem.item.item}</Text>
       </View>
     )
   }

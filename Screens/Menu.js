@@ -2,14 +2,14 @@
     Menu screen
 */
 import React from 'react';
-import { View, StyleSheet, SafeAreaView, Text, Button, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, SafeAreaView, Text, Button, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { responsiveHeight, responsiveWidth, responsiveFontSize, responsiveScreenHeight } from "react-native-responsive-dimensions";
 
 
 const Menu = props => {
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <View style={styles.headerStyle}>
                 <Text style={styles.titleStyle}>Let's get some workout!</Text>
@@ -31,12 +31,19 @@ const Menu = props => {
                         style={styles.mbj}
                     />
                 </View>
-                <View>
+
+                <View style={styles.imageContainer}>
+                    <Image
+                        source={require('../images/hit.jpg')}
+                        style={styles.mbj}
+                    />
+                </View>
+                <View style={styles.buttonContainer}>
                     {/* <Button title="Design your own workout program" onPress={() => props.navigation.navigate('ProgDesign')}/> */}
-                    <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgDesign')}><Text style={styles.buttonText}>Design your own workout program</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgPastWorkouts')}><Text style={styles.buttonText}>Recent Workouts</Text></TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     );
 
 };

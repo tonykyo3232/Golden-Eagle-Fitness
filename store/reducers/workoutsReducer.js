@@ -11,23 +11,23 @@ const workoutReducer= (state= initialState, action) =>{
     switch(action.type){
 
         case toggleFavorite:
-            console.warn(action);
+            //console.warn(action);
 
-            const existingIndex= state.favWorkouts.findIndex(workout=>workout.id===action.id)
+            // const existingIndex= state.favWorkouts.findIndex(workout=>workout.id===action.id)
 
-            if(existingIndex>=0){
+            // if(existingIndex>=0){
 
 
-                const updatedWorkouts = [...state.favWorkouts]
-                updatedWorkouts.splice(existingIndex,1)
+            //     const updatedWorkouts = [...state.favWorkouts]
+            //     updatedWorkouts.splice(existingIndex,1)
 
-                return{...state,favWorkouts:updatedWorkouts}
+            //     return{...state,favWorkouts:updatedWorkouts}
 
-            }else{
+            // }else{
                 const workout = state.workouts.find(workout=>workout.id===action.id);
 
-                return {...state, favWorkouts: state.favWorkouts.concat(workout)}
-            }
+                return {...state, favWorkouts: state.favWorkouts.concat(workout).reverse()}
+           // }
 
 
         default:
