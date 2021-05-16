@@ -31,12 +31,19 @@ const Menu = props => {
                         style={styles.mbj}
                     />
                 </View>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={() => props.navigation.navigate('ProgBMICal')}><Text style={styles.buttonText}>Calculte your BMI</Text></TouchableOpacity>
+                </View>
 
                 <View style={styles.imageContainer}>
                     <Image
-                        source={require('../images/hit.jpg')}
+                        source={require('../images/img3.jpg')}
                         style={styles.mbj}
                     />
+
+                </View>
+
+                <View>
                 </View>
                 <View style={styles.buttonContainer}>
                     {/* <Button title="Design your own workout program" onPress={() => props.navigation.navigate('ProgDesign')}/> */}
@@ -91,8 +98,8 @@ const styles = StyleSheet.create({
         width: responsiveWidth(95),
         borderRadius: responsiveFontSize(2)
     },
-    imageContainer:{
-        marginBottom:responsiveHeight(2)
+    imageContainer: {
+        marginBottom: responsiveHeight(2)
     }
 });
 

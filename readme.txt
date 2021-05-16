@@ -1,4 +1,5 @@
 ## [Golden Eagle Fitness](https://expo.io/@tonykyo/projects/golden-eagle-fitness)
+## [Git Repo Link](https://github.com/tonykyo3232/Golden-Eagle-Fitness)
 ## What the app is intended to do?
 - This app is intended to help users create/receive workout programs to reach their
 desired weight or even strength.

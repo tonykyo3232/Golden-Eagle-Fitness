@@ -7,7 +7,8 @@ import ProgReview from './Screens/Program/ProgReview';
 import ProgTimer from './Screens/Program/ProgTimer';
 import ProgVideo from './Screens/Program/ProgVideo';
 import ProgPastWorkouts from './Screens/History/ProgPastWorkouts'
-
+import ProgBMICal from './Screens/BMI_Calculation/ProgBMICal';
+import BMIResult from './Screens/BMI_Calculation/BMIResult';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -48,8 +49,14 @@ const FitnessStack = () => {
         <Stack.Screen name="ProgPastWorkouts" component={ProgPastWorkouts} options={{
           title: 'Golden Eagle Fitness',
         }} />
+        <Stack.Screen name="ProgBMICal" component={ProgBMICal} options={{
+          title: 'Golden Eagle Fitness',
+        }} />
+        <Stack.Screen name="BMIResult" component={BMIResult} options={{
+          title: 'Golden Eagle Fitness',
+        }} />
       </Stack.Navigator>
-    </Provider>
+    </Provider >
   );
 };
 
