@@ -28,11 +28,13 @@ const BMIResult = props =>{
       let weight = parseInt(props.route.params.weight);
       let feet = parseInt(props.route.params.feet);
       let inch = parseInt(props.route.params.inch);
-      let feet_inch = feet + (inch / 12);
+      let feet_inch = (feet/3.281) + (inch/39.37);
+      console.log(feet/3.281);
+      console.log(inch/39.37);
 
       // BMI calculation formula
       // Calculation: [weight (lb) / height (in) / height (in)] x 703
-      let BMI = (weight / (feet_inch * feet_inch)) * 703;
+      let BMI = ((weight/2.205)/ (feet_inch * feet_inch));
 
       // debug
       console.log("BMI: " + BMI);
